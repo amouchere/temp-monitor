@@ -5,6 +5,8 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
 import org.springframework.web.bind.annotation.RequestMapping
+import java.util.*
+
 
 @Controller
 class GuiController {
@@ -22,16 +24,13 @@ class GuiController {
     @RequestMapping("/gui")
     fun findStudent(model: Model): String {
 
-//        val map: MutableMap<String, String> = HashMap()
-//        service.getTemp().forEach {
-//            map.put(DateTimeFormatter.ISO_LOCAL_DATE_TIME.format(it.date), it.temp.toString())
-//        }
+        val map: HashMap<Long, Double> = HashMap()
 
-        model.addAttribute("temps", service.getTemp());
-        // model.addAttribute("temps", service.getTemp().stream().map({ e -> e.temp }).collect(Collectors.toList()));
-        // model.addAttribute("date", service.getTemp().stream().map({ e -> e.date }).collect(Collectors.toList()));
+        service.getTemp().forEach {
+            map[it.date] = it.temp
+        }
 
-
+        model.addAttribute("temps", map.toSortedMap())
         return "temp"
     }
 }
