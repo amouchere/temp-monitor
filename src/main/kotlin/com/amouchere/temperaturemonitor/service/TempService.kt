@@ -17,6 +17,7 @@ class TempService {
             TempData(LocalDateTime.now().minusDays(4).toEpochSecond(ZoneOffset.UTC) * 1000, "16.2".toDouble()),
             TempData(LocalDateTime.now().minusDays(3).toEpochSecond(ZoneOffset.UTC) * 1000, "12.2".toDouble()),
             TempData(LocalDateTime.now().minusDays(2).toEpochSecond(ZoneOffset.UTC) * 1000, "12.2".toDouble()),
+            TempData(LocalDateTime.now().minusDays(2).plusMinutes(4).toEpochSecond(ZoneOffset.UTC) * 1000, "12.2".toDouble()),
             TempData(LocalDateTime.now().minusDays(1).toEpochSecond(ZoneOffset.UTC) * 1000, "10.7".toDouble()),
             TempData(LocalDateTime.now().toEpochSecond(ZoneOffset.UTC) * 1000, "6.4".toDouble())
     )
