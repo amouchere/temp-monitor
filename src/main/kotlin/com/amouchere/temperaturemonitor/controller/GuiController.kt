@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
 import org.springframework.web.bind.annotation.RequestMapping
+import java.time.ZoneOffset
 import java.util.*
 
 
@@ -22,12 +23,12 @@ class GuiController {
 
 
     @RequestMapping("/gui")
-    fun findStudent(model: Model): String {
+    fun getTemp(model: Model): String {
 
         val map: HashMap<Long, Double> = HashMap()
 
         service.getTemp().forEach {
-            map[it.date] = it.temp
+            map[it.date.toEpochSecond(ZoneOffset.UTC) * 1000] = it.temp
         }
 
         model.addAttribute("temps", map.toSortedMap())
