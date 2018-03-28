@@ -17,8 +17,6 @@ class TempService {
             TempData(LocalDateTime.now().minusDays(4), "16.2".toDouble()),
             TempData(LocalDateTime.now().minusDays(3), "12.2".toDouble()),
             TempData(LocalDateTime.now().minusDays(2), "12.2".toDouble()),
-            TempData(LocalDateTime.now().minusDays(2).plusMinutes(4), "12.2".toDouble()),
-            TempData(LocalDateTime.now().minusDays(1), "10.7".toDouble()),
             TempData(LocalDateTime.now(), "6.4".toDouble())
     )
 
@@ -29,6 +27,7 @@ class TempService {
 
 
     fun addTemp(d: TempData): List<TempData> {
+        if (list.size > 10) list.removeAt(0)
         list.add(d)
         return list
     }
