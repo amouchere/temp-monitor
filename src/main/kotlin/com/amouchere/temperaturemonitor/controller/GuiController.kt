@@ -17,9 +17,7 @@ class GuiController {
 
 
     @RequestMapping("/")
-    fun index(): String {
-        return "index"
-    }
+    fun index() = "index"
 
 
     @RequestMapping("/gui")
