@@ -5,7 +5,7 @@
 >
 <head>
     <meta charset="UTF-8"/>
-    <title>Tutorial on Thymeleaf #map Function and High charts</title>
+    <title>Monitoring de température</title>
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
 
@@ -15,8 +15,6 @@
 </head>
 <body>
 <div class="container">
-    <h2>Monitoring de température</h2>
-
     <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -31,14 +29,14 @@
                 type: 'spline'
             },
             title: {
-                text: 'Température dans la chambre'
+                text: 'Température'
             },
             xAxis: {
                 categories: [[${temps.keySet()}]],
                 crosshair: true,
                 type: 'datetime',
                 labels: {
-                    "format": "{value:%Y-%m-%d %H:%m:%S}"
+                    "format": "{value:%Y-%m-%d %H:%M:%S}"
                 },
 
                 title: {
