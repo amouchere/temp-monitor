@@ -18,6 +18,7 @@ class TempController {
     @Autowired
     lateinit var service: TempService
 
+
     @GetMapping("/temp")
     fun getTemp(): List<TempData> {
         logger.info("new get request")
